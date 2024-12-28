@@ -39,4 +39,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefix ./web/WebApp
       - name: Build pnpm
-        run: pnpm build ./web/WebApp
+        run: pnpm build
+        working-directory: ./web/WebApp
