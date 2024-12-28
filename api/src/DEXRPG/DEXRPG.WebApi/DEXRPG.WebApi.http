@@ -1,0 +1,10 @@
+@WebApi_HostAddress = http://localhost:5105
+
+POST {{WebApi_HostAddress}}/createCharacter
+Accept: application/json
+
+{
+    "name": "Test name"
+}
+
+###
