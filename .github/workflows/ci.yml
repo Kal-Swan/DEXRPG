@@ -24,6 +24,9 @@ jobs:
       - name: dotnet build
         run: dotnet build ./api/src/DEXRPG/DEXRPG.sln --configuration Release
 
+      - name: dotnet publish
+        run: dotnet publish .api/src/DEXRPG/DEXRPG.WebApi.Api/DEXRPG.WebApi.Api.csproj --configuration Release -o artifacts
+
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -63,7 +66,6 @@ jobs:
       - name: Build pnpm
         run: pnpm build
         working-directory: ./web/WebApp
-
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
