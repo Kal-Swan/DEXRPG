@@ -1,4 +1,5 @@
 import type { Actions } from "@sveltejs/kit";
+import { apiUrl } from "../common/environment/urls"
 
 export const actions: Actions = {
     create: async ({ request }) => { 
@@ -7,7 +8,7 @@ export const actions: Actions = {
         const name = data.get('name');
         console.log(name);
 
-        const response = await fetch('http://localhost:5105/createCharacter', {
+        const response = await fetch(`${apiUrl}/createCharacter`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,7 +24,7 @@ export const actions: Actions = {
     },
     deleteAll: async () => {
         console.log('test deleteAll');
-        const response = await fetch('http://localhost:5105/deleteAllCharacters', {
+        const response = await fetch(`${apiUrl}/deleteAllCharacters`, {
             method: 'DELETE',
         });
 
