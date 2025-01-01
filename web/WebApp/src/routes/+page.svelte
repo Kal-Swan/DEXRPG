@@ -1,8 +1,10 @@
 <script lang="ts">
 	import type { Character } from '../models/Character';
 	import type { PageData } from './$types';
+	import { apiUrl } from '../common/environment/urls';
 	export let data: PageData;
 	let characters = data.characters as Character[];
+	console.log(apiUrl);
 
 	if (characters?.length > 0) console.log(characters[0].name);
 </script>
