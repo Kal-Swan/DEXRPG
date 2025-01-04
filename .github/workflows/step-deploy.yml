@@ -44,6 +44,6 @@ jobs:
       - name: "deploy to azure app service"
         uses: azure/webapps-deploy@v2
         with:
-          app-name: dexrpg-${{inputs.app_service_name}}-${{inputs.env}}
+          app-name: ${{inputs.app_service_name}}-${{inputs.env}}
           slot-name: slot
           package: artifacts/
