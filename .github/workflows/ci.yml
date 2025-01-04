@@ -25,7 +25,7 @@ jobs:
         run: dotnet build ./api/src/DEXRPG/DEXRPG.sln --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish ./api/src/DEXRPG/DEXRPG.WebApi.Api/DEXRPG.WebApi.Api.csproj --configuration Release -o artifacts
+        run: dotnet publish ./api/src/DEXRPG/DEXRPG.WebApi/DEXRPG.WebApi.csproj --configuration Release -o artifacts
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
