@@ -62,10 +62,8 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: "./web/WebApp/pnpm-lock.yaml"
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefix ./web/WebApp
-      - name: Build pnpm
-        run: pnpm build
         working-directory: ./web/WebApp
+        run: pnpm install
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
