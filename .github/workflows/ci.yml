@@ -64,21 +64,31 @@ jobs:
       - name: Install dependencies
         working-directory: ./web/WebApp
         run: pnpm install
-      - name: Move to target directory
-        working-directory: ./web/WebApp
-        run: pnpm deploy artifacts
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: dexrpg-app-artifact
           path: artifacts/
   deploy_dev_app:
-    name: deploy dev
+    runs-on: ubuntu-latest
+    environment: dev
     needs: build-frontend
-    uses: ./.github/workflows/step-deploy.yml
-    with:
-      env: dev
-      resource_group_name: dexrpg-rg
-      app_service_name: dexrpg-web-app
-      artifact_name: dexrpg-app-artifact
-    secrets: inherit
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dexrpg-app-artifact
+
+      - name: "azure login"
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: "deploy to azure app service"
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: dexrpg-web-app-dev
+          package: .
