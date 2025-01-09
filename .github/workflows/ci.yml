@@ -71,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dexrpg-app-artifact
-          path: .web/WebApp/dist/
+          path: ./web/WebApp/dist/
   deploy_dev_app:
     runs-on: ubuntu-latest
     environment: dev
