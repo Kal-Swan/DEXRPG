@@ -67,9 +67,6 @@ jobs:
       - name: Build
         working-directory: ./web/WebApp
         run: pnpm run build
-      - name: Deploy
-        working-directory: ./web/WebApp
-        run: pnpm run deploy --prod deploy build
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
