@@ -1,1 +1,1 @@
-export const apiUrl = import.meta.env.API_URL !== undefined ? import.meta.env.API_URL : 'http://localhost:5105';
+export const apiUrl = import.meta.env.VITE_API_URL !== undefined ? import.meta.env.VITE_API_URL : 'http://localhost:5105';
