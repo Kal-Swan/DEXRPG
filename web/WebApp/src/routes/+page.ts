@@ -9,6 +9,8 @@ export async function load({ fetch, params }) {
         const res = await fetch(`${apiUrl}/GetAllCharacters`);
         console.log(res);
         const item = await res.json();
+        console.log('item');
+        console.log(item);
     
         return {
             characters: item as Character[]
@@ -17,7 +19,7 @@ export async function load({ fetch, params }) {
     } catch (error) {
         console.error(error);
         return {
-            characters: []
+            characters: [] as Character[]
         }
     }
 }
