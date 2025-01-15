@@ -1,7 +1,8 @@
 import type { Character } from '../../../models/Character.js';
+import { apiUrl } from '../../../common/environment/urls';
 export async function load({ fetch, params }) {
 
-    const res = await fetch(`http://localhost:5105/${params.id}`);
+    const res = await fetch(`${apiUrl}/${params.id}`);
     const item = await res.json();
 
     return {
