@@ -1,7 +1,7 @@
 <script lang="ts">
 	let { data } = $props();
-	let { characters, configuration } = data;
-	let characterShare = configuration?.characterShare ?? 0;
+	let { characters } = data;
+	//let characterShare = configuration?.characterShare ?? 0;
 	if (characters?.length > 0) console.log(characters[0].name);
 </script>
 
@@ -37,9 +37,9 @@
 			{/each}
 		</ul>
 	{/if}
-	{#if characterShare > 0}
+	<!-- {#if characterShare > 0}
 		<div class="text-sm font-light">
 			Number of characters that can be shared are: {characterShare}
 		</div>
-	{/if}
+	{/if} -->
 </div>
