@@ -6,7 +6,7 @@ export async function load({ fetch, params }) {
     try {
         console.log('test api url');
         console.log(apiUrl);
-        const configurationResponse = await fetch(`${apiUrl}/configuration`);
+        //const configurationResponse = await fetch(`${apiUrl}/configuration`);
         //const configuration = await configurationResponse.json() as AppConfiguration;
         const res = await fetch(`${apiUrl}/GetAllCharacters`);
         console.log(res);
