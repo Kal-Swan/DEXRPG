@@ -16,16 +16,16 @@ builder.Services.AddDbContext<DbDexRpgContext>(optionsBuilder =>
 });
 builder.Services.AddCommonServices();
 
-var appConfiguration = builder.Configuration.GetSection(AppConfiguration.Name).Get<AppConfiguration>();
-
-builder.Configuration.AddAzureAppConfiguration(options =>
-{
-    options.Connect(new Uri(appConfiguration.Endpoint), new DefaultAzureCredential())
-        .Select(KeyFilter.Any, LabelFilter.Null)
-        .Select(KeyFilter.Any, builder.Environment.EnvironmentName);
-});
-
-builder.Services.Configure<DExRpgConfiguration>(builder.Configuration.GetSection(DExRpgConfiguration.Name));
+// var appConfiguration = builder.Configuration.GetSection(AppConfiguration.Name).Get<AppConfiguration>();
+//
+// builder.Configuration.AddAzureAppConfiguration(options =>
+// {
+//     options.Connect(new Uri(appConfiguration.Endpoint), new DefaultAzureCredential())
+//         .Select(KeyFilter.Any, LabelFilter.Null)
+//         .Select(KeyFilter.Any, builder.Environment.EnvironmentName);
+// });
+//
+// builder.Services.Configure<DExRpgConfiguration>(builder.Configuration.GetSection(DExRpgConfiguration.Name));
 builder.Services.AddCors();
 
 var app = builder.Build();
