@@ -6,6 +6,8 @@ export async function load({ fetch, params }) {
     try {
         console.log('test api url');
         console.log(apiUrl);
+        const configurationResponse = await fetch(`${apiUrl}/configuration`);
+        const configuration = await configurationResponse.json() as AppConfiguration;
         const res = await fetch(`${apiUrl}/GetAllCharacters`);
         console.log(res);
         const item = await res.json();
@@ -13,7 +15,8 @@ export async function load({ fetch, params }) {
         console.log(item);
     
         return {
-            characters: item as Character[]
+            characters: item as Character[],
+            configuration
         }
 
     } catch (error) {
