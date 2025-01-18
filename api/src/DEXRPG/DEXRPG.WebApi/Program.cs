@@ -39,7 +39,7 @@ else
     app.UseHttpsRedirection();
 }
 
-app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader());
+app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 app.MapEndpoints();
 
