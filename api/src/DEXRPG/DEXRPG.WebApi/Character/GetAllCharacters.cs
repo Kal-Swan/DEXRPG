@@ -1,4 +1,6 @@
+using DEXRPG.Common.Configuration;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace DEXRPG.WebApi.Character;
 using DEXRPG.Common.Database;
@@ -6,8 +8,6 @@ using DEXRPG.WebApi.Endpoints;
 
 public static class GetAllCharacters
 {
-    public record Response(IResult Result);
-    
     public class Endpoint : IEndpoint
     {
         public void MapEndpoint(IEndpointRouteBuilder app)

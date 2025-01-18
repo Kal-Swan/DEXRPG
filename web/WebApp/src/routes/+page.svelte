@@ -1,11 +1,7 @@
 <script lang="ts">
-	import type { Character } from '../models/Character';
-	import type { PageData } from './$types';
-	import { apiUrl } from '../common/environment/urls';
-	export let data: PageData;
-	let characters = data.characters as Character[];
-	console.log(apiUrl);
-
+	let { data } = $props();
+	let { characters, configuration } = data;
+	let characterShare = configuration?.characterShare ?? 0;
 	if (characters?.length > 0) console.log(characters[0].name);
 </script>
 
@@ -40,5 +36,10 @@
 				</li>
 			{/each}
 		</ul>
+	{/if}
+	{#if characterShare > 0}
+		<div class="text-sm font-light">
+			Number of characters that can be shared are: {characterShare}
+		</div>
 	{/if}
 </div>

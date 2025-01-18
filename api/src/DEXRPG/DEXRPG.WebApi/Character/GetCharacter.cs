@@ -6,10 +6,6 @@ using DEXRPG.WebApi.Endpoints;
 
 public static class GetCharacter
 {
-    public record Request(Guid Id);
-    
-    public record Response(IResult Result);
-    
     public class Endpoint : IEndpoint
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
