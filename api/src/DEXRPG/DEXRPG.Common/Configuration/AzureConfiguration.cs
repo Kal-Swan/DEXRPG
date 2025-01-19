@@ -7,17 +7,11 @@ public class AzureConfiguration
 {
     public TokenCredential Credential() =>
 
-#if DEBUG
+    #if DEBUG
         new DefaultAzureCredential();
-    
     #else 
     
-       new DefaultAzureCredential( new DefaultAzureCredentialOptions
-       {
-           ExcludeSharedTokenCacheCredential = true,
-           ExcludeVisualStudioCredential = true,
-           ExcludeAzureCliCredential = true,
-       });
+       new ManagedIdentityCredential("16575c00-1d5a-4ad2-8808-7a382f1ccf60")
     #endif
     
 }
