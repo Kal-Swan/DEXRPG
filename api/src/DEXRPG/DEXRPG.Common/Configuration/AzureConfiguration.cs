@@ -17,7 +17,6 @@ public class AzureConfiguration
            ExcludeSharedTokenCacheCredential = true,
            ExcludeVisualStudioCredential = true,
            ExcludeAzureCliCredential = true,
-           ExcludeManagedIdentityCredential = false
        });
     #endif
     
