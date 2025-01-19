@@ -20,7 +20,11 @@ var appConfiguration = builder.Configuration.GetSection(AppConfiguration.Name).G
 
 builder.Configuration.AddAzureAppConfiguration(options =>
 {
-    options.Connect(new Uri(appConfiguration.Endpoint), appConfiguration.Credential())
+    options.Connect(new Uri(appConfiguration.Endpoint), new DefaultAzureCredential( new DefaultAzureCredentialOptions
+        {
+            ExcludeSharedTokenCacheCredential = true,
+            ExcludeVisualStudioCredential = true
+        }))
         .Select(KeyFilter.Any, LabelFilter.Null)
         .Select(KeyFilter.Any, builder.Environment.EnvironmentName);
 });
