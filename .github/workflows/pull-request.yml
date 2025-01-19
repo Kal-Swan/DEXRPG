@@ -18,7 +18,7 @@ jobs:
           dotnet-version: 9.0.x
 
       - name: dotnet restore
-        run: dotnet restore ./api/src/DEXRPG/DEXRPG.sln --configuration Release
+        run: dotnet restore ./api/src/DEXRPG/DEXRPG.sln
 
       - name: dotnet build
         run: dotnet build ./api/src/DEXRPG/DEXRPG.sln --configuration Release
